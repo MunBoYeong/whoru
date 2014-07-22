@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class User extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -11,23 +11,25 @@ class Main extends CI_Controller {
     }
 
     public function index() {
-        $this->main();
+        $this->Login();
     }
 
     public function _remap($method) {
-        $this->load->view('Header_v');
-
-        $this->load->view('Menus_v');
+        $this->load->view('member/Header_v');
 
         if (method_exists($this, $method)) {
             $this->{"{$method}"}();
         }
 
-        $this->load->view('Footer_v');
+        $this->load->view('member/Footer_v');
     }
 
-    function main() {
-        $this->load->view('index_v');
+    function Login() {
+        $this->load->view('member/Login_v');
+    }
+
+    function Join() {
+        $this->load->view('member/Join_v');
     }
 
 }
