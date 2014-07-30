@@ -67,7 +67,7 @@
             <div class="password-reset-form" id="password-reset-form" style="display: none;">
                 <div class="header">
                     <div class="signin-text">
-                        <span>Password reset</span>
+                        <span>패스워드 재설정</span>
                         <div class="close">×</div>
                     </div> <!-- / .signin-text -->
                 </div> <!-- / .header -->
@@ -75,12 +75,12 @@
                 <!-- Form -->
                 <form action="./index.html" id="password-reset-form_id" novalidate="novalidate">
                     <div class="form-group w-icon">
-                        <input type="text" name="password_reset_email" id="p_email_id" class="form-control input-lg" placeholder="Enter your email">
+                        <input type="text" name="password_reset_email" id="p_email_id" class="form-control input-lg" placeholder="이메일을 쓰세요">
                         <span class="fa fa-envelope signin-form-icon"></span>
                     </div> <!-- / Email -->
 
                     <div class="form-actions">
-                        <input type="submit" value="SEND PASSWORD RESET LINK" class="signin-btn bg-primary">
+                        <input type="submit" value="패스워드 변경 링크 보내기" class="signin-btn bg-primary">
                     </div> <!-- / .form-actions -->
                 </form>
                 <!-- / Form -->
@@ -92,7 +92,7 @@
     <!-- / Container -->
 
     <div class="not-a-member">
-        회원이 아니십니까? <a href="/whoru/index.php/user/Join">회원 가입</a>
+        회원이 아니십니까? <a href="/whoru/user/Join">회원 가입</a>
     </div>
 
     <script src="/whoru/Static/bootstrap/js/bootstrap.min.js"></script>

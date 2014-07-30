@@ -84,7 +84,7 @@
         <!-- Right side -->
     </div>
     <div class="have-account">
-        이미 가입하셨습니까? <a href="/whoru/index.php/user/Login">로그인</a>
+        이미 가입하셨습니까? <a href="/whoru/user/Login">로그인</a>
     </div>
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -116,38 +116,6 @@
                         width: 'auto'
                     });
                 }
-            });
-
-            $("#signup-form_id").validate({focusInvalid: true, errorPlacement: function() {
-                }});
-
-            // Validate name
-            $("#name_id").rules("add", {
-                required: true,
-                minlength: 1
-            });
-
-            // Validate email
-            $("#email_id").rules("add", {
-                required: true,
-                email: true
-            });
-
-            // Validate username
-            $("#username_id").rules("add", {
-                required: true,
-                minlength: 3
-            });
-
-            // Validate password
-            $("#password_id").rules("add", {
-                required: true,
-                minlength: 6
-            });
-
-            // Validate confirm checkbox
-            $("#confirm_id").rules("add", {
-                required: true
             });
         });
 

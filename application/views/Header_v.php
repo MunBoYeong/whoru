@@ -149,7 +149,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-icon-btn">
-                                        <a href="/whoru/index.php/user/Join" class="btn-login-join">
+                                        <a href="/whoru/user/Join" class="btn-login-join">
                                             <i class="nav-icon fa fa-users"></i>
                                             <span class="small-screen-text">Join</span>
                                         </a>

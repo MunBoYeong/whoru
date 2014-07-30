@@ -1,11 +1,8 @@
-Deny from all
-AllowOverride All
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /whoru/
+  RewriteBase /
   RewriteCond $1 !^(index\.php|Images|Static|robots\.txt)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ index.php?/$1 [L]
+  RewriteRule ^(.*)$ /whoru/index.php?/$1 [L]
 </IfModule>
