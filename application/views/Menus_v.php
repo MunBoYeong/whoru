@@ -23,25 +23,25 @@
 -->
 <div id="main-menu" role="navigation">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div id="main-menu-inner" style="overflow: hidden; width: auto; height: 100%;">
-            <!-- Login info
-                        <div class="menu-content top animated fadeIn" id="menu-content-demo">
-            <!-- Menu custom content demo
-                     CSS:        styles/pixel-admin-less/demo.less or styles/pixel-admin-scss/_demo.scss
-                     Javascript: html/assets/demo/demo.js
-             
-            <div>
+            <!-- Login info-->
+            <div class="menu-content top animated fadeIn" id="menu-content-demo">
+                <!-- Menu custom content demo
+                         CSS:        styles/pixel-admin-less/demo.less or styles/pixel-admin-scss/_demo.scss
+                         Javascript: html/assets/demo/demo.js-->
+
+                <div>
                     <div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">John</span></div>
 
                     <img src="Images/1.jpg" alt="" class="">
                     <div class="btn-group">
-                            <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a>
-                            <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a>
-                            <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a>
-                            <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
+                        <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a>
+                        <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a>
+                        <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a>
+                        <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
                     </div>
                     <a href="#" class="close">×</a>
-            </div>
-    </div> -->
+                </div>
+            </div> 
             <ul class="navigation">
                 <li class=" active">
                     <a href="/whoru/"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Dashboard</span></a>

@@ -11,6 +11,7 @@ class User extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('date');
         $this->load->library('form_validation');
+        $this->load->model('user_m');
     }
 
     /*
@@ -40,7 +41,40 @@ class User extends CI_Controller {
      */
 
     public function Login() {
-        $this->load->view('member/Login_v');
+        echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+        $this->form_validation->set_error_delimiters('<font color=red>', '</font>&nbsp;');
+        $this->form_validation->set_rules('email', '이메일', 'required|valid_email|xss_clean');
+        $this->form_validation->set_rules('passwd', '패스워드', 'required|xss_clean|min_length[4]|max_length[20]');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('member/Login_v');
+        } else {
+            $hash = hash("sha512", $this->input->post('passwd'));
+
+            $auth_data = array(
+            'table' => 'members',
+            'email' => $this->input->post('email', TRUE),
+            'passwd' => $hash
+            );
+
+            $result = $this->user_m->login($auth_data);
+
+            if($result){
+                $newdata = array(
+                    'email'     => $result->email,
+                    'name'      => $result->name,
+                    'nickname'  => $result->nickname,
+                    'dept'      => $result->dept,
+                    'is_login'  => TRUE
+                );
+                
+                $this->session->set_userdata($newdata);
+                redirect('/');
+            }
+            else{
+                redirect('/user/Login');
+            }
+        }
     }
 
     /*
@@ -72,7 +106,6 @@ class User extends CI_Controller {
             'dept' => $this->input->post('dept', TRUE)
             );
 
-            $this->load->model('user_m');
             $result = $this->user_m->user_add($user_data);
 
             if($result){
@@ -131,6 +164,12 @@ class User extends CI_Controller {
         } else {
             return FALSE;
         }
+    }
+    
+    public function Logout(){
+        $this->session->sess_destroy();
+        
+        redirect('/');
     }
 }
 

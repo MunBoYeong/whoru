@@ -83,6 +83,9 @@
                                                                                             * 'nav-icon-btn-warning'
                                                                                             * 'nav-icon-btn-danger' 
                                     -->
+                                    <?php
+                                    if (@$this->session->userdata['is_login'] == TRUE) {
+                                    ?>
                                     <li class="nav-icon-btn nav-icon-btn-danger dropdown">
                                         <a href="http://infinite-woodland-5276.herokuapp.com/index.html#notifications" class="dropdown-toggle" data-toggle="dropdown">
                                             <span class="label">5</span>
@@ -142,6 +145,22 @@
                                             <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="notifications-link">MORE NOTIFICATIONS</a>
                                         </div> <!-- / .dropdown-menu -->
                                     </li>
+                                    <li class="dropdown">
+                                        <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="dropdown-toggle user-menu" data-toggle="dropdown">
+                                            <img src="Images/1.jpg" alt="">
+                                            <span><?php echo @$this->session->userdata['nickname']; ?></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><span class="label label-warning pull-right">New</span>Profile</a></li>
+                                            <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><span class="badge badge-primary pull-right">New</span>Account</a></li>
+                                            <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="/whoru/user/Logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;로그아웃</a></li>
+                                        </ul>
+                                    </li> 
+                                    <?php
+                                    } else {
+                                    ?>
                                     <li class="nav-icon-btn">
                                         <a href="/whoru/user/Login" class="btn-login-join">
                                             <i class="nav-icon fa fa-power-off"></i>
@@ -155,21 +174,9 @@
                                         </a>
                                     </li>
                                     <!-- /3. $END_NAVBAR_ICON_BUTTONS -->
-                                    <!--
-        <li class="dropdown">
-                                            <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="dropdown-toggle user-menu" data-toggle="dropdown">
-                                                    <img src="Images/1.jpg" alt="">
-                                                    <span>John Doe</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                    <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><span class="label label-warning pull-right">New</span>Profile</a></li>
-                                                    <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><span class="badge badge-primary pull-right">New</span>Account</a></li>
-                                                    <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="http://infinite-woodland-5276.herokuapp.com/pages-signin.html"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
-                                            </ul>
-                                    </li> 
-                                    -->
+                                    <?php
+                                    }
+                                    ?>
                                 </ul> <!-- / .navbar-nav -->
                             </div> <!-- / .right -->
                         </div>

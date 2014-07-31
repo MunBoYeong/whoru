@@ -41,7 +41,7 @@
         <div class="signin-form">
 
             <!-- Form -->
-            <form action="http://infinite-woodland-5276.herokuapp.com/index.html" id="signin-form_id" novalidate="novalidate">
+            <form action="" id="signin-form_id" novalidate="novalidate" method="post">
                 <div class="signin-text">
                     <span>로그인</span>
                 </div> <!-- / .signin-text -->
@@ -49,12 +49,14 @@
                 <div class="form-group w-icon">
                     <input type="text" name="email" class="form-control input-lg" placeholder="이메일" required>
                     <span class="fa fa-envelope signin-form-icon"></span>
-                </div> <!-- / Username -->
+                </div> <!-- / email -->
+                <p><?php if(form_error('email') == TRUE) echo form_error('email');?></p>
 
                 <div class="form-group w-icon">
                     <input type="password" name="passwd" class="form-control input-lg" placeholder="비밀번호" required>
                     <span class="fa fa-lock signin-form-icon"></span>
                 </div> <!-- / Password -->
+                <p><?php if(form_error('passwd') == TRUE) echo form_error('passwd');?></p>
 
                 <div class="form-actions">
                     <input type="submit" value="로그인" class="signin-btn bg-primary">
