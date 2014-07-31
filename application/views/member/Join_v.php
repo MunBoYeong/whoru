@@ -93,7 +93,7 @@
 
                 <div class="form-group" style="margin-top: 20px;margin-bottom: 20px;">
                     <label class="checkbox-inline">
-                        <input name="confirm" class="px" type="checkbox" >
+                        <input name="confirm" class="px" type="checkbox" required>
                         <span class="lbl"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">약관 동의</a></span>
                     </label>
                     <p><?php if(form_error('confirm') == TRUE) echo form_error('confirm');?></p>
