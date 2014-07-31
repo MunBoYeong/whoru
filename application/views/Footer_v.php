@@ -14,6 +14,7 @@
 <!-- Pixel Admin's javascripts -->
 <script src="/whoru/Static/bootstrap/js/bootstrap.min.js"></script>
 <script src="/whoru/Static/js/pixel-admin.min.js"></script>
+<script src="/whoru/Static/js/demo.js"></script>
 
 <script type="text/javascript">
             init.push(function() {
