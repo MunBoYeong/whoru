@@ -17,7 +17,6 @@ class User extends CI_Controller {
     /*
      * 주소에서 메서드가 생략되었을 때 실행되는 기본 메서드 
      */
-
     public function index() {
         $this->Login();
     }
@@ -25,7 +24,6 @@ class User extends CI_Controller {
     /*
      * 사이트 헤더, 푸터가 자동으로 추가
      */
-
     public function _remap($method) {
         $this->load->view('member/Header_v');
 
@@ -39,11 +37,10 @@ class User extends CI_Controller {
     /*
      * 로그인
      */
-
     public function Login() {
         echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
         $this->form_validation->set_error_delimiters('<font color=red>', '</font>&nbsp;');
-        $this->form_validation->set_rules('email', '이메일', 'required|valid_email|xss_clean');
+        $this->form_validation->set_rules('userid', '아이디', 'required|min_length[4]|max_length[20]|xss_clean');
         $this->form_validation->set_rules('passwd', '패스워드', 'required|xss_clean|min_length[4]|max_length[20]');
 
         if ($this->form_validation->run() == false) {
@@ -53,7 +50,7 @@ class User extends CI_Controller {
 
             $auth_data = array(
             'table' => 'members',
-            'email' => $this->input->post('email', TRUE),
+            'userid' => $this->input->post('userid', TRUE),
             'passwd' => $hash
             );
 
@@ -61,11 +58,12 @@ class User extends CI_Controller {
 
             if($result){
                 $newdata = array(
-                    'email'     => $result->email,
+                    'userid'    => $result->userid,
                     'name'      => $result->name,
-                    'nickname'  => $result->nickname,
+                    'email'     => $result->email,
                     'dept'      => $result->dept,
-                    'is_login'  => TRUE
+                    'is_login'  => TRUE,
+                    'is_admin'  => ($result->uid == 1) ? TRUE : FALSE
                 );
                 
                 $this->session->set_userdata($newdata);
@@ -80,15 +78,14 @@ class User extends CI_Controller {
     /*
      * 회원가입
      */
-
     public function Join() {
         echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
         $this->form_validation->set_error_delimiters('<font color=red>', '</font>&nbsp;');
-        $this->form_validation->set_rules('email', '이메일', 'required|valid_email|xss_clean|callback_email_check');
+        $this->form_validation->set_rules('userid', '아이디', 'required|xss_clean|min_length[4]|max_length[20]|callback_userid_check');
         $this->form_validation->set_rules('passwd', '패스워드', 'required|xss_clean|min_length[4]|max_length[20]|matches[passwd_chk]');
         $this->form_validation->set_rules('passwd_chk', '패스워드 확인', 'required|xss_clean');
         $this->form_validation->set_rules('name', '이름', 'required|xss_clean');
-        $this->form_validation->set_rules('nickname', '닉네임', 'required|xss_clean|callback_nickname_check');
+        $this->form_validation->set_rules('email', '이메일', 'required|valid_email|xss_clean|callback_email_check');
         $this->form_validation->set_rules('dept', '학과', 'required|xss_clean');
         $this->form_validation->set_rules('confirm', '약관 동의', 'required|xss_clean');
 
@@ -99,10 +96,10 @@ class User extends CI_Controller {
 
             $user_data = array(
             'table' => 'members',
-            'email' => $this->input->post('email', TRUE),
+            'userid' => $this->input->post('userid', TRUE),
             'passwd' => $hash,
             'name' => $this->input->post('name', TRUE),
-            'nickname' => $this->input->post('nickname', TRUE),
+            'email' => $this->input->post('email', TRUE),
             'dept' => $this->input->post('dept', TRUE)
             );
 
@@ -117,9 +114,9 @@ class User extends CI_Controller {
         }
     }
 
-        /*
-         * 이메일 중복체크
-         */
+    /*
+     * 이메일 중복체크
+     */
     public function email_check($email) {
         if ($email) {
             $result = array();
@@ -142,21 +139,20 @@ class User extends CI_Controller {
     }
 
     /*
-     * 닉네임 중복체크
+     * 사용자 아이디 중복체크
      */
-
-    public function nickname_check($nickname) {
-        if ($nickname) {
+    public function userid_check($userid) {
+        if ($userid) {
             $result = array();
-            $this->db->where(array('nickname'=>$this->input->post('nickname',TRUE)));
+            $this->db->where(array('userid'=>$this->input->post('userid',TRUE)));
             $query = $this->db->get('members');
             $result = $query->row();
-            //$sql = "SELECT nickname FROM members WHERE nickname='" . $nickname . "'";
+            //$sql = "SELECT userid FROM members WHERE userid='" . $userid . "'";
             //$query = $this->db->query($sql);
             //$result = $query->row();
 
             if ($result) {
-                $this->form_validation->set_message('nickname_check', $nickname . '은(는) 중복된 닉네임입니다.');
+                $this->form_validation->set_message('userid_check', $userid . '은(는) 중복된 아이디입니다.');
                 return FALSE;
             } else {
                 return TRUE;
@@ -166,6 +162,9 @@ class User extends CI_Controller {
         }
     }
     
+    /*
+     * 로그아웃
+     */
     public function Logout(){
         $this->session->sess_destroy();
         

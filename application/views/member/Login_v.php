@@ -46,17 +46,17 @@
                     <span>로그인</span>
                 </div> <!-- / .signin-text -->
 
-                <div class="form-group w-icon">
-                    <input type="text" name="email" class="form-control input-lg" placeholder="이메일" required>
-                    <span class="fa fa-envelope signin-form-icon"></span>
-                </div> <!-- / email -->
-                <p><?php if(form_error('email') == TRUE) echo form_error('email');?></p>
+                <div class="form-group w-icon <?php if(form_error('userid') == TRUE) echo 'has-error'; ?>">
+                    <input type="text" name="userid" class="form-control input-lg" placeholder="아이디" required>
+                    <span class="fa fa-user signin-form-icon"></span>
+                    <p class="help-block"><?php if(form_error('userid') == TRUE) echo form_error('userid');?></p>
+                </div> <!-- / email -->                
 
-                <div class="form-group w-icon">
+                <div class="form-group w-icon <?php if(form_error('passwd') == TRUE) echo 'has-error'; ?>">
                     <input type="password" name="passwd" class="form-control input-lg" placeholder="비밀번호" required>
                     <span class="fa fa-lock signin-form-icon"></span>
-                </div> <!-- / Password -->
-                <p><?php if(form_error('passwd') == TRUE) echo form_error('passwd');?></p>
+                    <p class="help-block"><?php if(form_error('passwd') == TRUE) echo form_error('passwd');?></p>
+                </div> <!-- / Password -->                
 
                 <div class="form-actions">
                     <input type="submit" value="로그인" class="signin-btn bg-primary">

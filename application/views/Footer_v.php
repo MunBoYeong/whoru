@@ -12,6 +12,7 @@
 
 
 <!-- Pixel Admin's javascripts -->
+<script src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <script src="/whoru/Static/bootstrap/js/bootstrap.min.js"></script>
 <script src="/whoru/Static/js/pixel-admin.min.js"></script>
 <script src="/whoru/Static/js/demo.js"></script>

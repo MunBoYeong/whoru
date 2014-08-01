@@ -16,10 +16,8 @@
         <link href="/whoru/Static/css/widgets.min.css" rel="stylesheet" type="text/css">
         <link href="/whoru/Static/css/rtl.min.css" rel="stylesheet" type="text/css">
         <link href="/whoru/Static/css/themes.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
 
-        <!--[if lt IE 9]>
-                <script src="assets/javascripts/ie.min.js"></script>
-        <![endif]-->
     </head>
 
 
@@ -57,7 +55,7 @@
 
                         <!-- Logo -->
                         <a href="/whoru/" class="navbar-brand">
-                            <div><img alt="Pixel Admin" src="Images/main-navbar-logo.png"></div>
+                            <div><img alt="QIH" src="/whoru/Images/main-navbar-logo.png"></div>
                             Question in Hoseo
                         </a>
 
@@ -147,8 +145,8 @@
                                     </li>
                                     <li class="dropdown">
                                         <a href="http://infinite-woodland-5276.herokuapp.com/index.html#" class="dropdown-toggle user-menu" data-toggle="dropdown">
-                                            <img src="Images/1.jpg" alt="">
-                                            <span><?php echo @$this->session->userdata['nickname']; ?></span>
+                                            <img src="/whoru/Images/1.jpg" alt="">
+                                            <span><?php echo @$this->session->userdata['userid']; ?></span>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li><a href="http://infinite-woodland-5276.herokuapp.com/index.html#"><span class="label label-warning pull-right">New</span>Profile</a></li>

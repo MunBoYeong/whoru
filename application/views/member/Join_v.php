@@ -41,12 +41,12 @@
                     $error_email = form_error('email_check');
                 }
                 
-                //닉네임 에러체크
-                if(form_error('nickname')){
-                    $error_nickname = form_error('nickname');
+                //아이디 에러체크
+                if(form_error('userid')){
+                    $error_userid = form_error('userid');
                 }
                 else{
-                    $error_nickname = form_error('nickname_check');
+                    $error_userid = form_error('userid_check');
                 }
             ?>
             <form action="" method="POST" id="signup-form_id">
@@ -55,48 +55,48 @@
                     <span>회원가입</span>
                 </div>
                 
-                <div class="form-group w-icon"> <!-- 이메일 -->
-                    <input name="email" class="form-control input-lg" placeholder="이메일" type="text" value="<?php echo set_value("email")?>" required>
-                    <span class="fa fa-envelope signup-form-icon"></span>
-                </div>
-                <p><?php if($error_email == TRUE) echo $error_email;?></p>
+                <div class="form-group w-icon <?php if($error_userid == TRUE) echo 'has-error'; ?>">
+                    <input name="userid" class="form-control input-lg" placeholder="아이디" type="text" value="<?php echo set_value("userid")?>" required>
+                    <span class="fa fa-user signup-form-icon"></span>
+                    <p class="help-block"><?php if($error_userid == TRUE) echo $error_userid;?></p>
+                </div>                
 
-                <div class="form-group w-icon">
+                <div class="form-group w-icon <?php if(form_error('passwd') == TRUE) echo 'has-error'; ?>">
                     <input name="passwd" class="form-control input-lg" placeholder="패스워드" type="password" required>
                     <span class="fa fa-lock signup-form-icon"></span>
-                </div>
-                <p><?php if(form_error('passwd') == TRUE) echo form_error('passwd');?></p>
+                    <p class="help-block"><?php if(form_error('passwd') == TRUE) echo form_error('passwd');?></p>
+                </div>                
 
-                <div class="form-group w-icon">
+                <div class="form-group w-icon <?php if(form_error('passwd_chk') == TRUE) echo 'has-error'; ?>">
                     <input name="passwd_chk" class="form-control input-lg" placeholder="패스워드 확인" type="password" required>
                     <span class="fa fa-lock signup-form-icon"></span>
-                </div>
-                <p><?php if(form_error('passwd_chk') == TRUE) echo form_error('passwd_chk');?></p>
+                    <p class="help-block"><?php if(form_error('passwd_chk') == TRUE) echo form_error('passwd_chk');?></p>
+                </div>                
 
-                <div class="form-group w-icon">
+                <div class="form-group w-icon <?php if(form_error('name') == TRUE) echo 'has-error'; ?>">
                     <input name="name" class="form-control input-lg" placeholder="이름" type="text" value="<?php echo set_value("name")?>" required>
                     <span class="fa fa-user signup-form-icon"></span>
-                </div>
-                <p><?php if(form_error('name') == TRUE) echo form_error('name');?></p>
+                    <p class="help-block"><?php if(form_error('name') == TRUE) echo form_error('name');?></p>
+                </div>                
+                
+                <div class="form-group w-icon <?php if($error_email == TRUE) echo 'has-error'; ?>"> <!-- 이메일 -->
+                    <input name="email" class="form-control input-lg" placeholder="이메일" type="text" value="<?php echo set_value("email")?>" required>
+                    <span class="fa fa-envelope signup-form-icon"></span>
+                    <p class="help-block"><?php if($error_email == TRUE) echo $error_email;?></p>
+                </div>                
 
-                <div class="form-group w-icon">
-                    <input name="nickname" class="form-control input-lg" placeholder="닉네임" type="text" value="<?php echo set_value("nickname")?>" required>
-                    <span class="fa fa-user signup-form-icon"></span>
-                </div>
-                <p><?php if($error_nickname == TRUE) echo $error_nickname;?></p>
-
-                <div class="form-group w-icon">
+                <div class="form-group w-icon <?php if(form_error('dept') == TRUE) echo 'has-error'; ?>">
                     <input name="dept" class="form-control input-lg" placeholder="학과" type="text" value="<?php echo set_value("dept")?>" required>
                     <span class="fa fa-university signup-form-icon"></span>
-                </div>
-                <p><?php if(form_error('dept') == TRUE) echo form_error('dept');?></p>
+                    <p class="help-block"><?php if(form_error('dept') == TRUE) echo form_error('dept');?></p>
+                </div>                
 
-                <div class="form-group" style="margin-top: 20px;margin-bottom: 20px;">
+                <div class="form-group <?php if(form_error('confirm') == TRUE) echo 'has-error'; ?>" style="margin-top: 20px;margin-bottom: 20px;">
                     <label class="checkbox-inline">
-                        <input name="confirm" class="px" type="checkbox" required>
+                        <input name="confirm" class="px" type="checkbox" >
                         <span class="lbl"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">약관 동의</a></span>
                     </label>
-                    <p><?php if(form_error('confirm') == TRUE) echo form_error('confirm');?></p>
+                    <p class="help-block"><?php if(form_error('confirm') == TRUE) echo form_error('confirm');?></p>
                 </div>
 
                 <div class="form-actions">

@@ -11,10 +11,10 @@ class User_m extends CI_Model {
 
     public function user_add($user_array) {
         $user_data = array(
-            'email' => $user_array['email'],
+            'userid' => $user_array['userid'],
             'passwd' => $user_array['passwd'],
             'name' => $user_array['name'],
-            'nickname' => $user_array['nickname'],
+            'email' => $user_array['email'],
             'dept' => $user_array['dept'],
             'date_joined' => date("Y-m-d H:i:s"),
             'date_lastlogin' => date("Y-m-d H:i:s")
@@ -29,7 +29,7 @@ class User_m extends CI_Model {
         $result = array();
         $this->db->where(
                 array(
-                    'email'     => $auth['email'],
+                    'userid'     => $auth['userid'],
                     'passwd'    => $auth['passwd']
                     )
                 );
@@ -44,7 +44,14 @@ class User_m extends CI_Model {
             return FALSE;
         }
     }
-
+    
+    public function memlist(){
+        $query = $this->db->get('members');
+        $result = $query->row();
+        
+        return $result;
+    }
+    
 }
 
 ?>
